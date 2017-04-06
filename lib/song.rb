@@ -25,14 +25,9 @@ class Song
   end
 
   def self.create_by_name(name)
-    Song.new_by_name(name)
-
+    song = Song.new_by_name(name)
     song.save
     return song
-    # song = Song.new
-    # song.name = name
-    # song.save
-    # return song
   end
 
   def self.find_by_name(name)
@@ -67,10 +62,7 @@ class Song
   end
 
   def self.create_from_filename (filename)
-    filename = filename.gsub(".mp3", "").split(" - ")
-    song = Song.new
-    song.name = filename[1]
-    song.artist_name = filename[0]
+    song = Song.new_from_filename(filename)
     song.save
     return song
   end
